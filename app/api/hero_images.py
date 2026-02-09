@@ -11,7 +11,6 @@ class HeroImage(BaseModel):
     title: str
     subtitle: str
 
-# Mock data for Pool - simulating DB fetch
 pool_hero_images_data = [
     {
         "id": 1,
