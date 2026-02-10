@@ -7,9 +7,9 @@ class Match(Base):
     __tablename__ = "matches"
 
     id = Column(Integer, primary_key=True, index=True)
-    winner_id = Column(Integer)
-    loser_id = Column(Integer)
-    timestamp = Column(DateTime)
+    winner_id = Column(Integer, nullable=False)
+    loser_id = Column(Integer, nullable=False)
+    timestamp = Column(DateTime, nullable=False)
 
 class Stat(Base):
     __tablename__ = "stats"

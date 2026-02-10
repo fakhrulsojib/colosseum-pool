@@ -10,3 +10,11 @@ app.include_router(hero_images.router, prefix="/api/pool/hero-images", tags=["he
 @app.get("/")
 async def root():
     return {"message": "Welcome to Colosseum Pool Game Engine"}
+
+@app.on_event("startup")
+async def create_tables():
+    from app.db.models import Base
+    from app.db.session import engine
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
+
